@@ -1,19 +1,20 @@
 'use strict';
 
+// Variables
+
 let randomNumber = Math.ceil(Math.random() * 20);
 let guessed = false;
 
-console.log(randomNumber);
-
 let highscore = document.querySelector('.highscore');
+let inputValue = document.querySelector('.guess');
 let message = document.querySelector('.message');
 let number = document.querySelector('.number');
 let score = document.querySelector('.score');
 
-// event listener - click guess
+// Event Listeners
 
 document.querySelector('.check').addEventListener('click', function () {
-  let input = Number(document.querySelector('.guess').value);
+  let input = Number(inputValue.value);
   // check state
   if (guessed) {
     changeMessage('You already won!');
@@ -36,6 +37,8 @@ document.querySelector('.check').addEventListener('click', function () {
 document.querySelector('.again').addEventListener('click', function () {
   resetGame();
 });
+
+// Functions
 
 function changeBackgroundColour(colour) {
   document.body.style.backgroundColor = colour;
@@ -60,8 +63,8 @@ function decreaseScore() {
 function resetGame() {
   guessed = false;
   changeMessage('Start guessing...');
-  document.querySelector('.score').textContent = 20;
-  document.querySelector('.number').textContent = '?';
-  document.querySelector('.guess').value = '';
+  score.textContent = 20;
+  number.textContent = '?';
+  inputValue.value = '';
   changeBackgroundColour('black');
 }
