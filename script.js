@@ -32,3 +32,11 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 });
+
+document.querySelector('.again').addEventListener('click', function () {
+  guessed = false;
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = 20;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+});
