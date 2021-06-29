@@ -1,10 +1,13 @@
 'use strict';
 
-// Generate random number
-
-let guessed = false;
 let randomNumber = Math.ceil(Math.random() * 20);
+let guessed = false;
+
 console.log(randomNumber);
+
+const changeMessage = function (text) {
+  document.querySelector('.message').textContent = text;
+};
 
 // event listener - click guess
 
@@ -12,13 +15,13 @@ document.querySelector('.check').addEventListener('click', function () {
   let input = Number(document.querySelector('.guess').value);
   // check state
   if (guessed) {
-    document.querySelector('.message').textContent = 'You already won!';
+    changeMessage('You already won!');
   } else if (input === 0) {
-    document.querySelector('.message').textContent = 'Enter a number!';
+    changeMessage('Enter a number!');
   } else if (input < 1 || input > 20) {
-    document.querySelector('.message').textContent = 'Between 1 and 20!';
+    changeMessage('Between 1 and 20!');
   } else if (input === randomNumber) {
-    document.querySelector('.message').textContent = '🥳 Correct! 🥳';
+    changeMessage('🥳 Correct! 🥳');
     document.querySelector('.number').textContent = randomNumber;
     document.querySelector('.highscore').textContent =
       document.querySelector('.score').textContent;
@@ -27,16 +30,16 @@ document.querySelector('.check').addEventListener('click', function () {
   } else {
     document.querySelector('.score').textContent -= 1;
     if (input < randomNumber) {
-      document.querySelector('.message').textContent = 'Too low!';
+      changeMessage('Too low!');
     } else {
-      document.querySelector('.message').textContent = 'Too high!';
+      changeMessage('Too high!');
     }
   }
 });
 
 document.querySelector('.again').addEventListener('click', function () {
   guessed = false;
-  document.querySelector('.message').textContent = 'Start guessing...';
+  changeMessage('Start guessing...');
   document.querySelector('.score').textContent = 20;
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
