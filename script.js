@@ -11,6 +11,14 @@ const changeMessage = function (text) {
 const decreaseScore = function () {
   document.querySelector('.score').textContent -= 1;
 };
+const resetGame = function () {
+  guessed = false;
+  changeMessage('Start guessing...');
+  document.querySelector('.score').textContent = 20;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+  document.body.style.backgroundColor = 'black';
+};
 
 // event listener - click guess
 
@@ -41,10 +49,5 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 
 document.querySelector('.again').addEventListener('click', function () {
-  guessed = false;
-  changeMessage('Start guessing...');
-  document.querySelector('.score').textContent = 20;
-  document.querySelector('.number').textContent = '?';
-  document.querySelector('.guess').value = '';
-  document.body.style.backgroundColor = 'black';
+  resetGame();
 });
