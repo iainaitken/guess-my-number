@@ -22,6 +22,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').textContent = randomNumber;
     document.querySelector('.highscore').textContent =
       document.querySelector('.score').textContent;
+    document.body.style.backgroundColor = 'green';
     guessed = true;
   } else {
     document.querySelector('.score').textContent -= 1;
@@ -39,4 +40,5 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.score').textContent = 20;
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
+  document.body.style.backgroundColor = 'black';
 });
