@@ -4,6 +4,7 @@
 
 let randomNumber = Math.ceil(Math.random() * 20);
 let guessed = false;
+let playerScore = 20;
 
 let body = document.body;
 let highscore = document.querySelector('.highscore');
@@ -53,13 +54,14 @@ function changeMessage(text) {
 function correctGuess() {
   changeMessage('🥳 Correct! 🥳');
   number.textContent = randomNumber;
-  highscore.textContent = score.textContent;
+  highscore.textContent = playerScore;
   changeBackgroundColour('green');
   guessed = true;
 }
 
 function decreaseScore() {
-  score.textContent -= 1;
+  playerScore--;
+  score.textContent = playerScore;
 }
 
 function fade(element, startColor, endColor, timeElapsed, steps) {
@@ -84,8 +86,13 @@ function pulseBackground() {
 function resetGame() {
   guessed = false;
   changeMessage('Start guessing...');
-  score.textContent = 20;
+  resetScore();
   number.textContent = '?';
   inputValue.value = '';
   changeBackgroundColour('black');
+}
+
+function resetScore() {
+  playerScore = 20;
+  score.textContent = playerScore;
 }
