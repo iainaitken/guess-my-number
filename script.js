@@ -18,7 +18,6 @@ let score = document.querySelector('.score');
 
 document.querySelector('.check').addEventListener('click', function () {
   let input = Number(inputValue.value);
-  // check state
   if (guessed) {
     changeMessage('You already won!');
   } else if (input === 0) {
