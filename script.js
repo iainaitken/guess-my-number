@@ -92,6 +92,7 @@ function resetGame() {
   gameOver = false;
   changeMessage('Start guessing...');
   resetScore();
+  randomNumber = Math.ceil(Math.random() * 20);
   number.textContent = '?';
   inputValue.value = '';
   changeBackgroundColour('black');
