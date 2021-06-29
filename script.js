@@ -5,6 +5,7 @@
 let randomNumber = Math.ceil(Math.random() * 20);
 let guessed = false;
 let playerScore = 20;
+let playerHighscore = 0;
 
 let body = document.body;
 let highscore = document.querySelector('.highscore');
@@ -54,7 +55,7 @@ function changeMessage(text) {
 function correctGuess() {
   changeMessage('🥳 Correct! 🥳');
   number.textContent = randomNumber;
-  highscore.textContent = playerScore;
+  setHighscore();
   changeBackgroundColour('green');
   guessed = true;
 }
@@ -95,4 +96,9 @@ function resetGame() {
 function resetScore() {
   playerScore = 20;
   score.textContent = playerScore;
+}
+
+function setHighscore() {
+  playerHighscore = playerScore;
+  highscore.textContent = playerHighscore;
 }
