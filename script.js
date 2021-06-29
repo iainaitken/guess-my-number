@@ -8,6 +8,9 @@ console.log(randomNumber);
 const changeMessage = function (text) {
   document.querySelector('.message').textContent = text;
 };
+const decreaseScore = function () {
+  document.querySelector('.score').textContent -= 1;
+};
 
 // event listener - click guess
 
@@ -28,7 +31,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.body.style.backgroundColor = 'green';
     guessed = true;
   } else {
-    document.querySelector('.score').textContent -= 1;
+    decreaseScore();
     if (input < randomNumber) {
       changeMessage('Too low!');
     } else {
