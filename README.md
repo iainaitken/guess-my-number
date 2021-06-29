@@ -37,7 +37,7 @@
 
 ## About The Project
 
-This project is part of the[Complete JavaScript](https://www.udemy.com/course/the-complete-javascript-course/) course on Udemy, by Jonas Schmedtman. See my learning notes [here](https://github.com/iainaitken/courses/blob/main/udemy/complete_javascript/notes/section-7/070-guess-my-number.md).
+This project is part of the [Complete JavaScript](https://www.udemy.com/course/the-complete-javascript-course/) course on Udemy, by Jonas Schmedtman. See my learning notes [here](https://github.com/iainaitken/courses/blob/main/udemy/complete_javascript/notes/section-7/070-guess-my-number.md).
 
 The HTML and CSS files for the webpage were provided; the challenge was to implement the game logic using JavaScript. The features to be included in the app were:
 
