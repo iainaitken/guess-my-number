@@ -56,6 +56,11 @@ In addition, I decided to include:
 
 My approach was to watch a demonstration of the features of the app and then attempt to implement the game logic without watching the course videos.
 
+Learning points from the videos:
+
+- Keep the game logic self-contained by using variables to represent the values of elements in the DOM (such as Score and Highscore) rather than storing those numbers in the DOM.
+- The game should be lost if the score drops to 0.
+
 ### Built With
 
 - JavaScript

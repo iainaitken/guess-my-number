@@ -3,6 +3,7 @@
 // Variables
 
 let randomNumber = Math.ceil(Math.random() * 20);
+let gameOver = false;
 let guessed = false;
 let playerScore = 20;
 let playerHighscore = 0;
@@ -18,8 +19,8 @@ let score = document.querySelector('.score');
 
 document.querySelector('.check').addEventListener('click', function () {
   let input = Number(inputValue.value);
-  if (guessed) {
-    changeMessage('You already won!');
+  if (guessed || gameOver) {
+    changeMessage('Play again?');
   } else if (input === 0) {
     changeMessage('Enter a number!');
   } else if (input < 1 || input > 20) {
@@ -29,7 +30,10 @@ document.querySelector('.check').addEventListener('click', function () {
   } else {
     pulseBackground();
     decreaseScore();
-    if (input < randomNumber) {
+    if (playerScore === 0) {
+      changeMessage('😥 You lost! 😥');
+      gameOver = true;
+    } else if (input < randomNumber) {
       changeMessage('Too low!');
     } else {
       changeMessage('Too high!');
@@ -85,6 +89,7 @@ function pulseBackground() {
 
 function resetGame() {
   guessed = false;
+  gameOver = false;
   changeMessage('Start guessing...');
   resetScore();
   number.textContent = '?';
