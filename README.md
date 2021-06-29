@@ -59,7 +59,7 @@ My approach was to watch a demonstration of the features of the app and then att
 Learning points from the videos:
 
 - Keep the game logic self-contained by using variables to represent the values of elements in the DOM (such as Score and Highscore) rather than storing those numbers in the DOM.
-- The game should be lost if the score drops to 0.
+- The game should be lost if the score drops to 0, otherwise the score can keep dropping to infinity.
 
 ### Built With
 
