@@ -3,7 +3,6 @@
 // Variables
 
 let secretNumber = randomNumber(20);
-console.log(secretNumber);
 let gameOver = false;
 let guessed = false;
 let playerScore = 20;
@@ -18,28 +17,28 @@ let score = document.querySelector('.score');
 
 // Event Listeners
 
-// Can we break this up? ie return if guessed or game over, then validate input function, then move to if elses for checking value of guess
-
 document.querySelector('.check').addEventListener('click', function () {
   let input = Number(inputValue.value);
+
   if (guessed || gameOver) {
     changeMessage('Play again?');
-  } else if (input === 0) {
-    changeMessage('Enter a number!');
-  } else if (input < 1 || input > 20) {
-    changeMessage('Between 1 and 20!');
-  } else if (input === secretNumber) {
-    correctGuess();
-  } else {
-    pulseBackground();
-    decreaseScore();
-    if (playerScore === 0) {
-      changeMessage('😥 You lost! 😥');
-      gameOver = true;
-    } else if (input < secretNumber) {
-      changeMessage('Too low!');
+    return;
+  }
+
+  if (validateInput(input)) {
+    if (input === secretNumber) {
+      correctGuess();
     } else {
-      changeMessage('Too high!');
+      pulseBackground();
+      decreaseScore();
+      if (playerScore === 0) {
+        changeMessage('😥 You lost! 😥');
+        gameOver = true;
+      } else if (input < secretNumber) {
+        changeMessage('Too low!');
+      } else {
+        changeMessage('Too high!');
+      }
     }
   }
 });
@@ -114,5 +113,17 @@ function setHighscore() {
   if (playerScore > playerHighscore) {
     playerHighscore = playerScore;
     highscore.textContent = playerHighscore;
+  }
+}
+
+function validateInput(input) {
+  if (input === 0) {
+    changeMessage('Enter a number!');
+    return false;
+  } else if (input < 1 || input > 20) {
+    changeMessage('Between 1 and 20!');
+    return false;
+  } else {
+    return true;
   }
 }
