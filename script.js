@@ -2,7 +2,8 @@
 
 // Variables
 
-let randomNumber = Math.ceil(Math.random() * 20);
+let secretNumber = randomNumber(20);
+console.log(secretNumber);
 let gameOver = false;
 let guessed = false;
 let playerScore = 20;
@@ -17,6 +18,8 @@ let score = document.querySelector('.score');
 
 // Event Listeners
 
+// Can we break this up? ie return if guessed or game over, then validate input function, then move to if elses for checking value of guess
+
 document.querySelector('.check').addEventListener('click', function () {
   let input = Number(inputValue.value);
   if (guessed || gameOver) {
@@ -25,7 +28,7 @@ document.querySelector('.check').addEventListener('click', function () {
     changeMessage('Enter a number!');
   } else if (input < 1 || input > 20) {
     changeMessage('Between 1 and 20!');
-  } else if (input === randomNumber) {
+  } else if (input === secretNumber) {
     correctGuess();
   } else {
     pulseBackground();
@@ -33,7 +36,7 @@ document.querySelector('.check').addEventListener('click', function () {
     if (playerScore === 0) {
       changeMessage('😥 You lost! 😥');
       gameOver = true;
-    } else if (input < randomNumber) {
+    } else if (input < secretNumber) {
       changeMessage('Too low!');
     } else {
       changeMessage('Too high!');
@@ -57,7 +60,7 @@ function changeMessage(text) {
 
 function correctGuess() {
   changeMessage('🥳 Correct! 🥳');
-  number.textContent = randomNumber;
+  number.textContent = secretNumber;
   setHighscore();
   changeBackgroundColour('green');
   guessed = true;
@@ -83,6 +86,10 @@ function fade(element, startColor, endColor, timeElapsed, steps) {
   }, timeElapsed);
 }
 
+function randomNumber(number) {
+  return Math.ceil(Math.random() * number);
+}
+
 function pulseBackground() {
   fade(body, [255, 0, 0], [0, 0, 0], 50, 16);
 }
@@ -92,7 +99,7 @@ function resetGame() {
   gameOver = false;
   changeMessage('Start guessing...');
   resetScore();
-  randomNumber = Math.ceil(Math.random() * 20);
+  secretNumber = randomNumber(20);
   number.textContent = '?';
   inputValue.value = '';
   changeBackgroundColour('black');
@@ -104,6 +111,8 @@ function resetScore() {
 }
 
 function setHighscore() {
-  playerHighscore = playerScore;
-  highscore.textContent = playerHighscore;
+  if (playerScore > playerHighscore) {
+    playerHighscore = playerScore;
+    highscore.textContent = playerHighscore;
+  }
 }
