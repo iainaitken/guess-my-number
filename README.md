@@ -4,10 +4,10 @@
   <p align="center">
     A small JavaScript-only front-end number-guessing game.
     <br />
-    <a href="https://github.com/iainaitken/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/iainaitken/guess-my-number"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.iainaitken.io/guess-my-number">Play on GitHub Pages</a>
+    <a href="https://iainaitken.github.io/guess-my-number">Play on GitHub Pages</a>
   </p>
 </p>
 
