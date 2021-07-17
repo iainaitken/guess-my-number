@@ -7,7 +7,7 @@
     <a href="https://github.com/iainaitken/guess-my-number"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://iainaitken.github.io/guess-my-number">Play on GitHub Pages</a>
+    <a href="https://iainaitken.github.io/c">Play on GitHub Pages</a>
   </p>
 </p>
 
@@ -90,7 +90,7 @@ The app runs in a browser; one option of running it is to use live-server.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/iainaitken/repo_name.git
+   git clone https://github.com/iainaitken/guess-my-number.git
    ```
 
 2. Navigate to the project folder
